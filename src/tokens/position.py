@@ -9,10 +9,10 @@ class Position:
         self.pos = -1 
         self.source = source
 
-    def copy():
+    def copy(self):
         return self
 
-    def peek():
+    def peek(self):
         if self.pos + 1 < len(self.source):
             self.pos += 1
             self.current = self.source[self.pos]
@@ -25,5 +25,5 @@ class Position:
             self.current =  None
 
     @property
-    def current():
+    def current(self):
         return self.current
