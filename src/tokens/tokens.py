@@ -1,4 +1,4 @@
-from enums import Enum, auto
+from enum import Enum, auto
 from dataclasses import dataclass
 from typing import Tuple
 from position import Position
