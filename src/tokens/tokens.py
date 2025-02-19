@@ -18,6 +18,8 @@ class TokenType(Enum):
     OPEN_BRACKET = auto()
     CLOSE_BRACKET = auto()
 
+    COLON = auto()
+
 
 @dataclass 
 class Token:

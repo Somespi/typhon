@@ -1,6 +1,3 @@
-
-
-
 class Position:
     def __init__(self, col: int, line: int, source: str):
         self.col = col 
