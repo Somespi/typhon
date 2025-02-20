@@ -58,4 +58,4 @@ class Lexer:
         if self.current_char() == '=':
             operation += self.current_char()
             self.position.peek()
-        return tokens.Token((start_position, self.position.copy()), tokens.TokenType(operation), operation)
+        return self._punctuation(start_position, operation)
