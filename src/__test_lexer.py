@@ -8,7 +8,7 @@ def test_lexer(source: str):
     print(f"Test {(TEST_INDEX_COUNT := TEST_INDEX_COUNT + 1)}".center(26, '='))
     lexer = Lexer(source)
     pprint(lexer.lex())
-    print("==========================\n")
+    print("=" * 26, '\n')
 
 
 test_lexer("1 + 1 = 2;")
