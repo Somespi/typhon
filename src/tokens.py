@@ -47,6 +47,14 @@ PUNCTUATIONS =  (
     TokenType.COLON
 )
 
+OPERATIONS = (
+    TokenType.PLUS,
+    TokenType.MINUS,
+    TokenType.MULTIPLY,
+    TokenType.DIVIDE,
+    TokenType.MODULO
+)
+
 @dataclass 
 class Token:
     position: Tuple[Position, Position]

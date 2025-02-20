@@ -19,14 +19,7 @@ class Lexer:
                 self.tokens.append(self._identifier())
             elif self.current_char() in tokens.PUNCTUATIONS:
                 self.tokens.append(self._punctuation())
-            elif self.current_char() in [
-                '=',
-                '+',
-                '-',
-                '*',
-                '/',
-                '%',
-            ]:
+            elif self.current_char() in tokens.OPERATIONS:
                 self.tokens.append(self._operations())
     
             else:
