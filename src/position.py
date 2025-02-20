@@ -1,3 +1,5 @@
+import copy
+
 class Position:
     def __init__(self, col: int, line: int, source: str):
         self.col = col 
@@ -7,7 +9,7 @@ class Position:
         self.source = source
 
     def copy(self):
-        return self
+        return copy.deepcopy(self)
 
     def peek(self):
         if self.pos + 1 < len(self.source):
@@ -20,7 +22,12 @@ class Position:
                 self.col  += 1 
         else:
             self.current =  None
-
-    @property
-    def current(self):
-        return self.current
+    
+    def check_next_char(self):
+        if self.pos + 1 < len(self.source):
+            return self.source[self.pos + 1]
+        else:
+            return None
+    
+    def __repr__(self):
+        return f"Cursor at {self.line}:{self.col}"
