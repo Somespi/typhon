@@ -21,7 +21,8 @@ class Lexer:
                 self.tokens.append(self._punctuation())
             elif self.current_char() in tokens.OPERATIONS:
                 self.tokens.append(self._operations())
-    
+            elif self.current_char() in {'"', "'"}:
+                self.tokens.append(self._string())
             else:
                 ... # TODO: Error handling
         return self.tokens
@@ -71,3 +72,14 @@ class Lexer:
             return tokens.Token((start_position, self.position.copy()), tokens.TokenType.KEYWORD, identifier)
         else:
             return tokens.Token((start_position, self.position.copy()), tokens.TokenType.IDENTIFIER, identifier)
+    
+    def _string(self) -> tokens.Token:
+        start_position = self.position.copy()
+        starting = self.current_char()
+        self.position.peek()
+        string = ""
+        while self.current_char() is not None and self.current_char() != starting:
+            string += self.current_char()
+            self.position.peek()
+        self.position.peek()
+        return tokens.Token((start_position, self.position.copy()), tokens.TokenType.STRING, string)

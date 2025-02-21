@@ -9,6 +9,7 @@ class TokenType(StrEnum):
     IDENTIFIER = auto()
     FLOAT = auto()
     INTEGER = auto()
+    STRING = auto()
 
     EQUAL = '='
     EQUAL_EQUAL = '=='
@@ -20,6 +21,7 @@ class TokenType(StrEnum):
     CLOSE_BRACKET = ']'
     SEMI_COLON = ';'
     COLON = ':'
+    COMMA = ','
     PLUS = '+'
     MINUS = '-'
     MULTIPLY = '*'
@@ -48,7 +50,8 @@ PUNCTUATIONS = (
     TokenType.OPEN_BRACKET,
     TokenType.CLOSE_BRACKET,
     TokenType.SEMI_COLON,
-    TokenType.COLON
+    TokenType.COLON,
+    TokenType.COMMA
 )
 
 OPERATIONS = (
