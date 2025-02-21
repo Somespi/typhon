@@ -24,6 +24,7 @@ class TokenType(StrEnum):
     MINUS = '-'
     MULTIPLY = '*'
     DIVIDE = '/'
+    BACKSLASH = '\\'
     MODULO = '%'
     EXPONENT = '**'
 
@@ -33,6 +34,8 @@ class TokenType(StrEnum):
     DIVIDE_EQUAL = '/='
     MODULO_EQUAL = '%='
     EXPONENT_EQUAL = '**='
+    
+    EOF = 'EOF'
 
 
 PUNCTUATIONS = (
