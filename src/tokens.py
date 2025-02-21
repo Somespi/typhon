@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from typing import Tuple
 from position import Position
 
+
 class TokenType(StrEnum):
     KEYWORD = auto()
     IDENTIFIER = auto()
@@ -25,7 +26,7 @@ class TokenType(StrEnum):
     DIVIDE = '/'
     MODULO = '%'
     EXPONENT = '**'
-    
+
     PLUS_EQUAL = '+='
     MINUS_EQUAL = '-='
     MULTIPLY_EQUAL = '*='
@@ -34,10 +35,10 @@ class TokenType(StrEnum):
     EXPONENT_EQUAL = '**='
 
 
-PUNCTUATIONS =  (
-    TokenType.EQUAL, 
-    TokenType.EQUAL_EQUAL, 
-    TokenType.OPEN_PAREN, 
+PUNCTUATIONS = (
+    TokenType.EQUAL,
+    TokenType.EQUAL_EQUAL,
+    TokenType.OPEN_PAREN,
     TokenType.CLOSE_PAREN,
     TokenType.OPEN_BRACE,
     TokenType.CLOSE_BRACE,
@@ -55,10 +56,45 @@ OPERATIONS = (
     TokenType.MODULO
 )
 
-@dataclass 
+KEYWORDS = (
+    'False', 
+    'None', 
+    'True', 
+    'and', 
+    'as', 
+    'assert', 
+    'async', 
+    'await', 
+    'break', 
+    'class', 
+    'continue', 
+    'def', 
+    'del', 
+    'elif', 
+    'else', 
+    'except', 
+    'finally', 
+    'for', 
+    'from', 
+    'if', 
+    'import', 
+    'in', 
+    'is', 
+    'lambda', 
+    'not', 
+    'or', 
+    'pass', 
+    'raise', 
+    'return', 
+    'try', 
+    'while', 
+    'with', 
+    'yield'
+)
+
+
+@dataclass
 class Token:
     position: Tuple[Position, Position]
-    type: TokenType 
+    type: TokenType
     literal: str
-
-

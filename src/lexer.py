@@ -14,7 +14,7 @@ class Lexer:
             if self.current_char().isspace(): 
                 self.position.peek()
             elif self.current_char().isdigit():
-                self.tokens.append(self._integer())
+                self.tokens.append(self._number())
             elif self.current_char().isalpha():
                 self.tokens.append(self._identifier())
             elif self.current_char() in tokens.PUNCTUATIONS:
@@ -26,7 +26,7 @@ class Lexer:
                 ... # TODO: Error handling
         return self.tokens
     
-    def _integer(self) -> tokens.Token: 
+    def _number(self) -> tokens.Token: 
         start_position = self.position.copy()
         number = self.current_char()
         is_float = False
@@ -59,3 +59,15 @@ class Lexer:
             operation += self.current_char()
             self.position.peek()
         return self._punctuation(start_position, operation)
+    
+    def _identifier(self) -> tokens.Token:
+        start_position = self.position.copy()
+        identifier = self.current_char()
+        self.position.peek()
+        while self.current_char() is not None and (self.current_char().isalnum() or self.current_char() == '_'):
+            identifier += self.current_char()
+            self.position.peek()
+        if identifier in tokens.KEYWORDS:
+            return tokens.Token((start_position, self.position.copy()), tokens.TokenType.KEYWORD, identifier)
+        else:
+            return tokens.Token((start_position, self.position.copy()), tokens.TokenType.IDENTIFIER, identifier)

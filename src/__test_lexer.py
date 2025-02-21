@@ -13,4 +13,5 @@ def test_lexer(source: str):
 
 test_lexer("1 + 1 = 2;")
 test_lexer("13 + 13 == 26.5;")
-test_lexer("34.65 *= 45.5;\n 456.23")
+test_lexer("34.65 *= 45.5;\n 456.23;")
+test_lexer("test_function(53 and 56);")
